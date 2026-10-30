@@ -6,6 +6,8 @@ vim.opt.autoindent = true
 vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.relativenumber = false
+vim.opt.guicursor = "n-v-c-i:ver25"
+vim.opt.selection = "exclusive"
 
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -447,6 +449,36 @@ require("lazy").setup({
 
             end,
         },
+
+        {
+        "saghen/blink.cmp",
+        version = "1.*",
+        dependencies = {
+            "rafamadriz/friendly-snippets",
+        },
+        opts = {
+            keymap = {
+                preset = "enter",
+            },
+
+            completion = {
+                documentation = {
+                    auto_show = true,
+                },
+            },
+
+            sources = {
+                default = {
+                    "lsp",
+                    "path",
+                    "snippets",
+                    "buffer",
+                },
+            },
+        },
+
+        opts_extend = { "sources.default" },
+        }
 
     },
 
